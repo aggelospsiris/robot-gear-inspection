@@ -6,7 +6,7 @@ Inspect multiple gears from sequential **RGB frames and timestamps**. The pipeli
 returns tracked IDs, masks, A/B types, anomaly scores and temporal normal/abnormal
 decisions, with optional heatmap overlays.
 
-**FT-FSOD detection → SAM 3 segmentation → motion/appearance tracking → AdaptCLIP anomaly scoring → temporal voting.**
+**[FT-FSOD](https://github.com/Intellindust-AI-Lab/FT-FSOD) detection → [SAM 3](https://github.com/facebookresearch/sam3) segmentation → motion/appearance tracking → [AdaptCLIP](https://github.com/gaobb/AdaptCLIP) anomaly scoring → temporal voting.**
 
 This configuration targets two specific gear types using 18 normal references
 with rotation augmentation. Add the separately supplied weights to `weights/`,
@@ -227,15 +227,15 @@ array and a null JSON score; it is not a zero anomaly score.
 
 ## Fixed inference settings
 
-FT-FSOD detects A/B boxes every frame at confidence ≥0.30. SAM 3 segments those
+[FT-FSOD](https://github.com/Intellindust-AI-Lab/FT-FSOD) detects A/B boxes every frame at confidence ≥0.30. [SAM 3](https://github.com/facebookresearch/sam3) segments those
 boxes; separate motion/appearance tracking maintains IDs across short gaps.
 After ≥15 usable detections and ≥50% confidence-weighted agreement, with a strict
 winning class, the type locks for that ID. The model never assigns type from
-left/right position. This is SAM 3 image segmentation with external ID tracking,
-not SAM 3 native video-memory tracking or a text-prompt detector.
+left/right position. This is [SAM 3](https://github.com/facebookresearch/sam3) image segmentation with external ID tracking,
+not [SAM 3](https://github.com/facebookresearch/sam3) native video-memory tracking or a text-prompt detector.
 
 Blurred, uncertain, clipped and overlapping views do not create anomaly evidence.
-Only masked gear crops enter AdaptCLIP S2; background becomes neutral gray.
+Only masked gear crops enter [AdaptCLIP](https://github.com/gaobb/AdaptCLIP) S2; background becomes neutral gray.
 The bank uses 11 normal A and seven normal B originals, each at four rotations
 (0/90/180/270): **72 reference views**. No extra augmentations are enabled.
 The model retrieves 16 same-type views. The local score averages the highest

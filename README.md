@@ -1,7 +1,7 @@
 #Gear Inspection
 
 Multi-object gear inspection from sequential RGB frames and timestamps. Combines
-FT-FSOD detection, SAM 3 segmentation, motion/appearance tracking and AdaptCLIP
+[FT-FSOD](https://github.com/Intellindust-AI-Lab/FT-FSOD) detection, [SAM 3](https://github.com/facebookresearch/sam3) segmentation, motion/appearance tracking and [AdaptCLIP](https://github.com/gaobb/AdaptCLIP)
 anomaly scoring with temporal voting.
 
 Returns instance IDs, masks, A/B gear types, normal/abnormal decisions and heatmaps.
@@ -97,6 +97,6 @@ gear types; training and recalibration for other products are outside this relea
 ## Acknowledgements
 
 Built on [FT-FSOD](https://github.com/Intellindust-AI-Lab/FT-FSOD),
-[SAM 3](https://github.com/facebookresearch/sam3) and the vendored
-[AdaptCLIP implementation](vendor/AdaptCLIP).
+[SAM 3](https://github.com/facebookresearch/sam3) and
+[AdaptCLIP](https://github.com/gaobb/AdaptCLIP).
 See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
