@@ -23,11 +23,11 @@ cd robot-gear-inspection
 
 The repository includes configuration, tokenizer files, calibration and the
 prebuilt normal-reference bank. **Only neural-network checkpoints are excluded
-from Git.** Obtain the matching `robot_gear_inspection_weights.zip` from the
-maintainer through [GitHub Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues).
-No public checkpoint download URL is currently provided.
+from Git.** Download them from the [weights folder on SharePoint](https://itmlgr.sharepoint.com/:f:/r/sites/tornado.eu/Shared%20Documents/06.%20TORNADO%20-%20Work%20Packages/TORNADO%20-%20WP4/UC1_anomaly_detection_weights?d=we4be14988f324919a5b9802534849f2e&csf=1&web=1&e=VJnnKT).
+Access is subject to the folder's SharePoint permissions.
 
-Extract the ZIP into the empty `weights/` folder from the repository root:
+Place the five checkpoint files directly in the repository's `weights/` folder.
+If using `robot_gear_inspection_weights.zip`, extract it from the repository root:
 
 ```bash
 unzip /path/to/robot_gear_inspection_weights.zip -d weights

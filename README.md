@@ -21,12 +21,19 @@ cd robot-gear-inspection
 
 ## Checkpoints
 
-Obtain `robot_gear_inspection_weights.zip` from the maintainer via
-[Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues), then extract
-it into `weights/`. A public checkpoint URL is not currently available.
+Download the checkpoints from the [weights folder on SharePoint](https://itmlgr.sharepoint.com/:f:/r/sites/tornado.eu/Shared%20Documents/06.%20TORNADO%20-%20Work%20Packages/TORNADO%20-%20WP4/UC1_anomaly_detection_weights?d=we4be14988f324919a5b9802534849f2e&csf=1&web=1&e=VJnnKT)
+and place the five files directly in `weights/`. Access is subject to the folder's
+SharePoint permissions.
+
+If using `robot_gear_inspection_weights.zip`, extract it from the repository root:
 
 ```bash
 unzip /path/to/robot_gear_inspection_weights.zip -d weights
+```
+
+Then install dependencies:
+
+```bash
 bash tools/setup.sh
 ```
 
