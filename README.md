@@ -1,4 +1,4 @@
-# RGB Gear Inspection
+#Gear Inspection
 
 Multi-object gear inspection from sequential RGB frames and timestamps. Combines
 FT-FSOD detection, SAM 3 segmentation, motion/appearance tracking and AdaptCLIP
