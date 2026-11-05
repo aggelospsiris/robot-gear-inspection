@@ -2,28 +2,15 @@
 
 ## Overview
 
-This package inspects multiple gears in sequential camera frames. Supply one
-**RGB frame and its timestamp** per call. For each visible gear, it returns an
-ID, segmentation mask, A/B type, anomaly score and, after collecting enough
-usable observations, a **normal or abnormal** decision. It can also produce an
-overlay showing masks, heatmaps and vote counts.
+Inspect multiple gears from sequential **RGB frames and timestamps**. The pipeline
+returns tracked IDs, masks, A/B types, anomaly scores and temporal normal/abnormal
+decisions, with optional heatmap overlays.
 
-The pipeline runs in this order:
+**FT-FSOD detection → SAM 3 segmentation and tracking → AdaptCLIP S2 anomaly scoring → temporal voting.**
 
-1. **Detect:** FT-FSOD finds gears and predicts their A/B type.
-2. **Segment and track:** SAM 3 produces masks; motion/appearance tracking maintains IDs.
-3. **Confirm type:** collect usable detections, then lock A/B for each retained ID.
-4. **Inspect:** reject poor-quality views and score the masked gear with AdaptCLIP S2.
-5. **Vote:** combine observations over time before returning an anomaly decision.
-
-The published inference configuration targets two project-specific gear types,
-A and B, using a rotation-only normal-reference bank. It is not a pretrained
-detector for arbitrary gear categories. The repository contains inference code;
-model weights and the prebuilt bank are distributed separately.
-**No training or bank building is required once the matching assets are installed.**
-
-Follow steps 1–6 below to install, test and integrate it. Detailed inference
-settings and validation limits are at the end.
+This configuration targets two specific gear types using 18 normal references
+with rotation augmentation. Add the separately supplied weights to `weights/`,
+then follow the steps below. No training or bank building is required.
 
 ## Step 1 — Get the source and model assets
 
