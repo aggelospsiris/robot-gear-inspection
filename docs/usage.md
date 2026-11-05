@@ -27,17 +27,8 @@ from Git.** Download them from the [weights folder on SharePoint](https://itmlgr
 Access is subject to the folder's SharePoint permissions.
 
 Place the five checkpoint files directly in the repository's `weights/` folder.
-If using `robot_gear_inspection_weights.zip`, extract it from the repository root:
-
-```bash
-unzip /path/to/robot_gear_inspection_weights.zip -d weights
-```
-
-The ZIP contains exactly five checkpoint files, with no enclosing directory.
-The result must be `weights/sam3.pt`, not `weights/weights/sam3.pt`.
-**Use the checkpoint-only ZIP matching this layout; older asset ZIPs have a
-different directory structure.** Check all files after installing Python dependencies
-with `.venv/bin/python tools/check_install.py --assets-only`.
+The result should be `weights/sam3.pt`, `weights/ftfsod.pth`, `weights/clip.pt`,
+`weights/adaptclip_s2.pth` and `weights/bert.safetensors`.
 
 ### Repository layout
 
@@ -280,9 +271,3 @@ conditions requires suitable detector weights, references and calibration.
 See [LICENSE](../LICENSE) for this project's license and
 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) for upstream components.
 Model weights and dependencies retain their own license terms.
-
-To create a checkpoint-only ZIP from a populated installation:
-
-```bash
-python tools/package_weights.py /path/to/robot_gear_inspection_weights.zip
-```

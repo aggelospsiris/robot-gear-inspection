@@ -25,12 +25,6 @@ Download the checkpoints from the [weights folder on SharePoint](https://itmlgr.
 and place the five files directly in `weights/`. Access is subject to the folder's
 SharePoint permissions.
 
-If using `robot_gear_inspection_weights.zip`, extract it from the repository root:
-
-```bash
-unzip /path/to/robot_gear_inspection_weights.zip -d weights
-```
-
 Then install dependencies:
 
 ```bash
