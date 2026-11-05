@@ -1,4 +1,4 @@
-# Gear inspection for the robot
+# Timestamped RGB Gear Inspection
 
 ## Overview
 
@@ -16,33 +16,67 @@ The pipeline runs in this order:
 4. **Inspect:** reject poor-quality views and score the masked gear with AdaptCLIP S2.
 5. **Vote:** combine observations over time before returning an anomaly decision.
 
-The supplied version uses the selected rotation-only normal-reference bank.
-All required weights and the prebuilt bank are included in the handover archive.
-**No training, dataset download or bank building is required to run inference.**
-Weights are excluded from Git history, so a source-only clone is insufficient.
+The published inference configuration targets two project-specific gear types,
+A and B, using a rotation-only normal-reference bank. It is not a pretrained
+detector for arbitrary gear categories. The repository contains inference code;
+model weights and the prebuilt bank are distributed separately.
+**No training or bank building is required once the matching assets are installed.**
 
 Follow steps 1–6 below to install, test and integrate it. Detailed inference
 settings and validation limits are at the end.
 
-## Step 1 — Extract the package
+## Step 1 — Get the source and model assets
 
-Copy `robot_gear_inspection_handover.tar` to the robot computer, then run:
+Clone this repository:
 
 ```bash
-tar -xf robot_gear_inspection_handover.tar
-cd robot_gear_inspection
+git clone https://github.com/aggelospsiris/robot-gear-inspection.git
+cd robot-gear-inspection
 ```
 
-Run the remaining commands from this folder. It contains:
+The model assets are **not included in Git**, and no public weight download is
+currently provided. Request the matching asset bundle from the repository
+maintainer through [GitHub Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues).
+A source-only clone cannot run inference. If you already have the complete
+archive, extract it and use its `robot_gear_inspection` directory directly.
+
+For a source clone, place the bundle's complete `weights/` directory in the
+repository root. Preserve its directory structure:
+
+```text
+weights/
+  sam3.pt
+  detector/
+    gears_hed.pth
+    inference.py
+    manifest.json
+    bert-base-uncased/
+  anomaly/
+    clip.pt
+    adaptclip_s2.pth
+    reference_bank/
+    thresholds.json
+    scoring.json
+    preprocessing.json
+    blur_filter.json
+  manifest.csv
+  taxonomy.json
+```
+
+The assets must match `WEIGHTS_SHA256.json`, including the calibrated reference
+bank and thresholds. Downloading generic upstream checkpoints alone does not
+reproduce this configuration.
+
+Run the remaining commands from the repository root:
 
 | Path | Purpose |
 | --- | --- |
-| `configs/stream.json` | Single inference configuration |
-| `weights/` | Detector, SAM 3, AdaptCLIP and normal-reference bank |
+| `configs/stream.json` | Inference configuration |
+| `weights/` | Separately supplied models and reference bank |
 | `src/gear_inspection/` | Frame-processing API |
 | `examples/inspect_frames.py` | Saved-frame example |
 | `tools/setup.sh` | Environment installation |
-| `tools/check_install.py` | Weights and environment verification |
+| `tools/check_install.py` | Asset and environment verification |
 
 ## Step 2 — Check the computer
 
@@ -84,7 +118,7 @@ different platform, its compiled packages must be matched to that platform;
 Prepare your own RGB image sequence. For example:
 
 ```text
-robot_gear_inspection/
+robot-gear-inspection/
   frames/
     0001.png
     0002.png
@@ -120,7 +154,7 @@ Inspect the generated files:
 
 Initial frames may have no decision while evidence is collected. This is expected.
 
-## Step 5 — Connect the camera and robot
+## Step 5 — Integrate a camera stream
 
 Create an integration script using the following API. Run that script with
 `.venv/bin/python your_script.py` from this folder.
@@ -134,15 +168,15 @@ with Inspector.from_config(config) as inspector:
     for rgb, timestamp_seconds in camera_receiver:
         result = inspector.process_frame(rgb, timestamp_seconds, render=True)
         for gear in result.gears:
-            send_to_robot(
+            handle_gear(
                 gear.gear_id, gear.mask, gear.gear_type,
                 gear.is_defective, gear.anomaly_score,
             )
         display(result.overlay_rgb)
 ```
 
-Replace `camera_receiver`, `send_to_robot` and `display` with your camera, robot
-interface and display functions. They are placeholders, not supplied functions.
+Replace `camera_receiver`, `handle_gear` and `display` with your frame source,
+application callback and display functions. They are placeholders, not supplied functions.
 Use `render=False` when no visual overlay is needed.
 
 Before calling `process_frame`, ensure:
@@ -202,18 +236,31 @@ the `.venv-ftfsod/bin/python` executable path: resolving its symlink loses its
 virtual environment. Weights/calibration fingerprints are checked at load time;
 do not edit thresholds, bank or scoring independently.
 
-## Validation status
+## Evaluation and limitations
 
-This is a partner testing prototype. On the 709-frame known-normal development
+This is a research inference prototype. On the 709-frame known-normal development
 sequence it produced 15.0% false alarms among decided repeated gear observations
 and one incorrect type lock. Damaged-video recall and production tracking are
 not validated. Initial/blurred views may have no decision. Test with representative
-robot-camera normal and damaged sequences before using decisions for robot action.
+normal and damaged sequences from your camera before integrating decisions into
+automated inspection or control.
 
 `weights/manifest.csv` and `weights/taxonomy.json` are small integrity records
 required by calibration checks; they are not image datasets and their historical
 paths are not read at inference. `WEIGHTS_SHA256.json` records included asset hashes.
 No training images, videos, experiment reports or alternative model weights are
 included. Source code is published at https://github.com/aggelospsiris/robot-gear-inspection.
-The weights are distributed separately in the handover archive.
+The matching model assets are distributed separately; they are not in Git history.
 See `THIRD_PARTY_NOTICES.md` and vendor licenses for redistribution terms.
+
+
+## Scope and licensing
+
+This repository provides inference for the supplied A/B gear configuration.
+Training scripts and tools for building new reference banks or calibrating other
+products are not included. Applying the pipeline to new gear types or camera
+conditions requires suitable detector weights, references and calibration.
+
+See [LICENSE](LICENSE) for this project's license and
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for upstream components.
+Model weights and dependencies retain their own license terms.
