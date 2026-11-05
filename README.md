@@ -11,7 +11,7 @@ no training is required for inference.
 
 ## Installation
 
-Requirements: Linux, NVIDIA CUDA GPU, Python 3.12 and Python 3.10. The detector
+Requirements: NVIDIA CUDA GPU, Python 3.12 and Python 3.10. The detector
 uses a separate environment for its compiled MMCV operators.
 
 ```bash

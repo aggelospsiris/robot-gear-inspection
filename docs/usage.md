@@ -93,16 +93,9 @@ robot-gear-inspection/
 └── tests/                          # Layout and integrity regression checks
 ```
 
-The reference bank contains **features**, not neural-network weights or original
-images. It belongs in `assets/reference_bank/` and is needed for inference.
-The repository is approximately 600 MB because those features are included.
-`weights/` contains no tokenizer, reference bank, configuration or calibration.
-The `.venv`, `.venv-ftfsod` and `output/` folders are created locally and ignored
-by Git. Run subsequent commands from the repository root.
-
 ## Step 2 — Check the computer
 
-Use Linux x86-64 with an NVIDIA CUDA GPU and compatible driver. Both Python
+Use an NVIDIA CUDA GPU with a compatible driver. Both Python
 **3.12** and **3.10** must already be installed. Check them:
 
 ```bash
