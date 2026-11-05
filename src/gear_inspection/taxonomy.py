@@ -9,8 +9,8 @@ def file_sha256(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
-def validate_taxonomy(assets, thresholds):
-    profile = Path(assets).parent
+def validate_taxonomy(calibration, thresholds):
+    profile = Path(calibration)
     path = profile / "taxonomy.json"
     if not path.is_file():
         if "taxonomy_sha256" in thresholds:

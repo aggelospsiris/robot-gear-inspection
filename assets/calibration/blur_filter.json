@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "features": [
+    "retention5_min",
+    "retention5_max",
+    "retention11_min",
+    "retention11_max",
+    "edge_width_median",
+    "edge_width_p75",
+    "relative_edge_width"
+  ],
+  "mean": [
+    0.7148359801088061,
+    0.8264104645876658,
+    0.4388217270847351,
+    0.6410792675756273,
+    3.8390702520098006,
+    4.691313170724445,
+    0.03792208057361796
+  ],
+  "scale": [
+    0.1149868320253143,
+    0.10044811900908691,
+    0.12666941673649998,
+    0.1323235344507329,
+    1.564715282980057,
+    1.698413669055522,
+    0.016675374989359712
+  ],
+  "coefficients": [
+    0.4263252844445001,
+    1.2478301081592424,
+    -0.9775772842659012,
+    1.0941625515709736,
+    1.0478950975749954,
+    0.67392128882117,
+    1.235135771391452
+  ],
+  "intercept": 2.252801549770891,
+  "reject_threshold": 0.45499999999999996,
+  "accept_threshold": 0.25499999999999995,
+  "threshold_selection": "maximize grouped-calibration balanced accuracy with at most10percent photometric-control rejection; not validated on real blur",
+  "calibration": "14 original normal reference parents; grouped seven-fold validation; photometric controls, Gaussian and directional motion blur",
+  "pixel_scale": "native resolution; no resizing",
+  "mask_region": "eroded gear interior; no synthetic mask-border edges",
+  "edge_metric": "custom gradient-profile FWHM proxy, not CPBD",
+  "score_meaning": "synthetic-calibration blur score; not a calibrated real-world probability",
+  "uncertain_rule": "score between thresholds, fewer than8 edge profiles, fewer than50 interior pixels, or object minor side below half reference10thpercentile; quarantine for review",
+  "training_targets": "only synthetic blur labels on normal references; no UC1 query labels or anomaly scores used",
+  "minimum_short_side": {
+    "A": 44.3,
+    "B": 42.1
+  }
+}

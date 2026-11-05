@@ -16,3 +16,11 @@
 Retain upstream notices and review applicable model/software redistribution
 terms when sharing or deploying this prototype. No public training datasets
 are redistributed.
+
+## Local inference layout adaptation
+
+The vendored FT-FSOD BERT loader accepts an explicit `weights_path` so that
+learned BERT tensors stay in `weights/bert.safetensors`, while tokenizer and
+architecture files stay in `assets/tokenizer/bert-base-uncased/`. The loader
+strictly validates the encoder tensors and omits the unused pooler when disabled.
+This changes file organization, not model parameters or inference policy.

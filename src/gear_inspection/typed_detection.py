@@ -207,7 +207,10 @@ class FTFSODProposals:
                 process.kill()
                 process.wait()
             finally:
-                process.stdin.close()
+                try:
+                    process.stdin.close()
+                except OSError:
+                    pass
                 process.stdout.close()
         self.temp.cleanup()
         self.log_file.close()

@@ -17,12 +17,12 @@ from tools.utils import get_transform
 
 
 class AdaptCLIP:
-    def __init__(self, assets, device="cuda:0", load_adapters=True):
-        self.assets = Path(assets)
-        self.scoring_rule = load_scoring(self.assets)
+    def __init__(self, calibration, weights, device="cuda:0", load_adapters=True):
+        self.weights = Path(weights)
+        self.scoring_rule = load_scoring(calibration)
         self.device = torch.device(device)
         self.preprocess = get_transform(518)[0]
-        self.encoder, _ = adaptcliplib.load(str(self.assets / "clip.pt"), device="cpu")
+        self.encoder, _ = adaptcliplib.load(str(self.weights / "clip.pt"), device="cpu")
         self.encoder.visual.DAPM_replace(DPAM_layer=20)
         self.textual = TextualAdapter(self.encoder, 518, 12)
         self.visual = VisualAdapter(518, 14, input_dim=768, reduction=4)
@@ -31,7 +31,7 @@ class AdaptCLIP:
         )
         if load_adapters:
             state = torch.load(
-                self.assets / "adaptclip_s2.pth", map_location="cpu", weights_only=True
+                self.weights / "adaptclip_s2.pth", map_location="cpu", weights_only=True
             )
             for key, mod in [
                 ("textual_learner", self.textual),

@@ -1,0 +1,84 @@
+{
+  "thresholds": {
+    "A": 0.062799371778965,
+    "B": 0.12884044647216797
+  },
+  "retrieval_k": 16,
+  "bank_index_sha256": "1352f7f13ee5efe53e8116594507e1765cfe77057ce88950bf7bf5672507efd2",
+  "checkpoint_sha256": "7ac212de9058551ba03984aa51b7c3274044fa82e5c72c4efc7be9aa2f1ae9b5",
+  "scoring_rule": {
+    "version": "top10_percent_patch_mean_v1",
+    "pooling": "top_fraction_patch_mean",
+    "smoothing_sigma": 4,
+    "global_fusion": "three_head_arithmetic_mean",
+    "image_fusion": "harmonic_mean_global_local",
+    "spatial_support": "entire_padded_crop",
+    "fraction": 0.1,
+    "patch_grid": [
+      37,
+      37
+    ],
+    "patch_values": "area_average_of_smoothed_heatmap",
+    "rounding": "ceil"
+  },
+  "scoring_sha256": "105eb926d53fcd6efd832d4d086bbf1ae78930d46aa9025e2f13fc8f2206cead",
+  "selection": "per-type maximum Youden J; 110 explicitly selected images, four rotations each; all own-parent rotations excluded for normal calibration",
+  "augmentation": "rotation_only",
+  "rotation_degrees": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "status": "PROVISIONAL_SELECTED_CALIBRATION_NOT_INDEPENDENT_TEST",
+  "temporal_threshold_status": "cumulative majority with mean-score tie-break; needs labeled partner sequences",
+  "correlated_views": "Rotations are not independent images. Each selected parent contributes equally (four views).",
+  "metrics": {
+    "A": {
+      "calibration_AUROC": 0.8910511363636363,
+      "calibration_recall": 0.8,
+      "calibration_false_positive_rate": 0.13636363636363635,
+      "original_images": 51,
+      "rotated_views": 204,
+      "normal": {
+        "original_images": 11,
+        "rotated_views": 44,
+        "minimum": 0.03311027213931084,
+        "maximum": 0.10074397921562195,
+        "mean": 0.05306645863774148
+      },
+      "anomalous": {
+        "original_images": 40,
+        "rotated_views": 160,
+        "minimum": 0.04142991080880165,
+        "maximum": 0.23075716197490692,
+        "mean": 0.10429116804152727
+      }
+    },
+    "B": {
+      "calibration_AUROC": 0.9876373626373627,
+      "calibration_recall": 0.9951923076923077,
+      "calibration_false_positive_rate": 0.10714285714285714,
+      "original_images": 59,
+      "rotated_views": 236,
+      "normal": {
+        "original_images": 7,
+        "rotated_views": 28,
+        "minimum": 0.056804317981004715,
+        "maximum": 0.1823350042104721,
+        "mean": 0.09869221198771681
+      },
+      "anomalous": {
+        "original_images": 52,
+        "rotated_views": 208,
+        "minimum": 0.11998265236616135,
+        "maximum": 0.36575719714164734,
+        "mean": 0.2620581842314165
+      }
+    }
+  },
+  "taxonomy_version": "reference_shape_v2",
+  "taxonomy_sha256": "861e7d4f02cae8aac4e3dd83c4d37d9eebfa42270db0ec15d7aaa9d191c0560d",
+  "calibration_manifest_sha256": "6f7a0f7d720df81cfa064c9a937b26325bb88e494c8a22959e8e942a9b160346",
+  "preprocessing_sha256": "6ff1dfd03b34ab5542a30994cc7415eccc02a1937d7db63448df0c82b4d80cec"
+}

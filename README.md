@@ -6,7 +6,7 @@ Inspect multiple gears from sequential **RGB frames and timestamps**. The pipeli
 returns tracked IDs, masks, A/B types, anomaly scores and temporal normal/abnormal
 decisions, with optional heatmap overlays.
 
-**FT-FSOD detection → SAM 3 segmentation and tracking → AdaptCLIP S2 anomaly scoring → temporal voting.**
+**FT-FSOD detection → SAM 3 segmentation → motion/appearance tracking → AdaptCLIP anomaly scoring → temporal voting.**
 
 This configuration targets two specific gear types using 18 normal references
 with rotation augmentation. Add the separately supplied weights to `weights/`,
@@ -21,58 +21,84 @@ git clone https://github.com/aggelospsiris/robot-gear-inspection.git
 cd robot-gear-inspection
 ```
 
-The model assets are **not included in Git**. Obtain
-`robot_gear_inspection_weights.zip` from the repository maintainer. There is
-currently no public download URL; request the archive through
-[GitHub Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues).
+The repository includes configuration, tokenizer files, calibration and the
+prebuilt normal-reference bank. **Only neural-network checkpoints are excluded
+from Git.** Obtain the matching `robot_gear_inspection_weights.zip` from the
+maintainer through [GitHub Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues).
+No public checkpoint download URL is currently provided.
 
-The repository includes an empty `weights/` folder. Extract the ZIP **into that
-folder**, from the repository root:
+Extract the ZIP into the empty `weights/` folder from the repository root:
 
 ```bash
 unzip /path/to/robot_gear_inspection_weights.zip -d weights
 ```
 
-The ZIP contains the contents of `weights/`, so do not create a second nested
-`weights/weights/` directory. After extraction, check that these paths exist:
+The ZIP contains exactly five checkpoint files, with no enclosing directory.
+The result must be `weights/sam3.pt`, not `weights/weights/sam3.pt`.
+**Use the checkpoint-only ZIP matching this layout; older asset ZIPs have a
+different directory structure.** Check all files after installing Python dependencies
+with `.venv/bin/python tools/check_install.py --assets-only`.
+
+### Repository layout
 
 ```text
-weights/
-  sam3.pt
-  detector/
-    gears_hed.pth
-    inference.py
-    manifest.json
-    bert-base-uncased/
-  anomaly/
-    clip.pt
-    adaptclip_s2.pth
-    reference_bank/
-    thresholds.json
-    scoring.json
-    preprocessing.json
-    blur_filter.json
-  manifest.csv
-  taxonomy.json
+robot-gear-inspection/
+├── README.md
+├── LICENSE
+├── THIRD_PARTY_NOTICES.md
+├── pyproject.toml
+├── requirements.lock.txt
+├── requirements.ftfsod.lock.txt
+├── ASSETS_SHA256.json               # Checksums for checkpoints and runtime assets
+├── VERIFICATION.json                # Scope of the local validation
+├── configs/
+│   ├── stream.json                 # Pipeline settings and relative asset paths
+│   └── detector/
+│       ├── inference.py            # FT-FSOD/BERT architecture and local paths
+│       └── manifest.json           # Detector class mapping and integrity bindings
+├── assets/                         # Included in Git; no source images
+│   ├── reference_bank/
+│   │   ├── index.json              # 18 normal originals, 72 rotation views
+│   │   ├── globals.npy
+│   │   └── <parent_id>.pt          # 18 precomputed reference-feature files
+│   ├── calibration/
+│   │   ├── thresholds.json
+│   │   ├── scoring.json
+│   │   ├── preprocessing.json
+│   │   ├── blur_filter.json
+│   │   ├── taxonomy.json
+│   │   └── manifest.csv            # Calibration lineage, not image data
+│   └── tokenizer/
+│       └── bert-base-uncased/
+│           ├── config.json         # BERT architecture, no learned tensors
+│           ├── tokenizer.json
+│           ├── tokenizer_config.json
+│           └── vocab.txt
+├── weights/                        # Checkpoints only; populated from the ZIP
+│   ├── .gitkeep                    # Empty Git placeholder
+│   ├── sam3.pt
+│   ├── ftfsod.pth
+│   ├── clip.pt
+│   ├── adaptclip_s2.pth
+│   └── bert.safetensors
+├── src/gear_inspection/             # Inference API and pipeline
+├── vendor/                         # Required upstream inference source/licenses
+├── examples/
+│   └── inspect_frames.py
+├── tools/
+│   ├── setup.sh
+│   ├── check_install.py
+│   ├── package_weights.py
+│   └── ftfsod_worker.py
+└── tests/                          # Layout and integrity regression checks
 ```
 
-A source-only clone cannot run inference. No training or reference images are
-needed in this folder.
-
-The assets must match `WEIGHTS_SHA256.json`, including the calibrated reference
-bank and thresholds. Downloading generic upstream checkpoints alone does not
-reproduce this configuration.
-
-Run the remaining commands from the repository root:
-
-| Path | Purpose |
-| --- | --- |
-| `configs/stream.json` | Inference configuration |
-| `weights/` | Separately supplied models and reference bank |
-| `src/gear_inspection/` | Frame-processing API |
-| `examples/inspect_frames.py` | Saved-frame example |
-| `tools/setup.sh` | Environment installation |
-| `tools/check_install.py` | Asset and environment verification |
+The reference bank contains **features**, not neural-network weights or original
+images. It belongs in `assets/reference_bank/` and is needed for inference.
+The repository is approximately 600 MB because those features are included.
+`weights/` contains no tokenizer, reference bank, configuration or calibration.
+The `.venv`, `.venv-ftfsod` and `output/` folders are created locally and ignored
+by Git. Run subsequent commands from the repository root.
 
 ## Step 2 — Check the computer
 
@@ -85,7 +111,7 @@ python3.12 --version
 python3.10 --version
 ```
 
-Allow space for about 6 GB of weights plus two Python environments. Installation
+Allow space for about 5.8 GB of checkpoints, 600 MB of reference assets plus two Python environments. Installation
 needs internet; inference uses local files. Python 3.12 runs the main pipeline.
 The detector runs in a separate Python 3.10 environment for compiled MMCV
 compatibility.
@@ -241,12 +267,13 @@ not validated. Initial/blurred views may have no decision. Test with representat
 normal and damaged sequences from your camera before integrating decisions into
 automated inspection or control.
 
-`weights/manifest.csv` and `weights/taxonomy.json` are small integrity records
+`assets/calibration/manifest.csv` and `assets/calibration/taxonomy.json` are small integrity records
 required by calibration checks; they are not image datasets and their historical
-paths are not read at inference. `WEIGHTS_SHA256.json` records included asset hashes.
+paths are not read at inference. `ASSETS_SHA256.json` records included asset hashes.
 No training images, videos, experiment reports or alternative model weights are
 included. Source code is published at https://github.com/aggelospsiris/robot-gear-inspection.
-The matching model assets are distributed separately; they are not in Git history.
+Only model checkpoints are distributed separately; reference assets and calibration
+are included in Git.
 See `THIRD_PARTY_NOTICES.md` and vendor licenses for redistribution terms.
 
 
@@ -260,3 +287,9 @@ conditions requires suitable detector weights, references and calibration.
 See [LICENSE](LICENSE) for this project's license and
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for upstream components.
 Model weights and dependencies retain their own license terms.
+
+To create a checkpoint-only ZIP from a populated installation:
+
+```bash
+python tools/package_weights.py /path/to/robot_gear_inspection_weights.zip
+```

@@ -1,0 +1,15 @@
+{
+  "version": "top10_percent_patch_mean_v1",
+  "pooling": "top_fraction_patch_mean",
+  "smoothing_sigma": 4,
+  "global_fusion": "three_head_arithmetic_mean",
+  "image_fusion": "harmonic_mean_global_local",
+  "spatial_support": "entire_padded_crop",
+  "fraction": 0.1,
+  "patch_grid": [
+    37,
+    37
+  ],
+  "patch_values": "area_average_of_smoothed_heatmap",
+  "rounding": "ceil"
+}

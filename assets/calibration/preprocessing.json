@@ -1,0 +1,21 @@
+{
+  "version": "sam3_masked_gear_v1",
+  "background_rgb": [
+    127,
+    127,
+    127
+  ],
+  "crop_padding": 0.18,
+  "sam3_checkpoint_sha256": "9999e2341ceef5e136daa386eecb55cb414446a00ac2b55eb2dfd2f7c3cf8c9e",
+  "sam3_image_size": 1008,
+  "mask_source": "SAM3 box predictor",
+  "reference_selection": "latest explicit 11 A normals and seven B normals",
+  "reference_rotations": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "calibration_source": "92 previously selected and taxonomy-corrected anomalies, plus 18 selected normals",
+  "source_manifest_sha256": "60801cdb301af2cee9ae3f82a853672fd702d8aae1644bebe96d9b6788343cca"
+}

@@ -1,5 +1,4 @@
 {
-  "assets": "../weights/anomaly",
   "device": "cuda:0",
   "retrieval_k": 16,
   "max_gears": 12,
@@ -17,9 +16,9 @@
   "ftfsod": {
     "python": "../.venv-ftfsod/bin/python",
     "worker": "../tools/ftfsod_worker.py",
-    "config": "../weights/detector/inference.py",
-    "checkpoint": "../weights/detector/gears_hed.pth",
-    "manifest": "../weights/detector/manifest.json",
+    "config": "detector/inference.py",
+    "checkpoint": "../weights/ftfsod.pth",
+    "manifest": "detector/manifest.json",
     "log": "../output/detector.log",
     "nms_iou": 0.4,
     "new_track_threshold": 0.3,
@@ -46,5 +45,10 @@
     "ambiguity_margin": 0.08
   },
   "sam3_checkpoint": "../weights/sam3.pt",
-  "sam3_image_size": 1008
+  "sam3_image_size": 1008,
+  "paths": {
+    "weights": "../weights",
+    "calibration": "../assets/calibration",
+    "reference_bank": "../assets/reference_bank"
+  }
 }

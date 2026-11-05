@@ -1,0 +1,799 @@
+{
+  "version": "reference_shape_v2",
+  "reference_definitions": {
+    "A": "broad toothed gear with protruding shaft ends",
+    "B": "narrow cylindrical gear/shaft, often with cross hole"
+  },
+  "rules": {
+    "Proper/A": "A",
+    "Proper/B": "B",
+    "Anomalous/fake damage with marker pen/A": "A",
+    "Anomalous/fake damage with marker pen/B": "B",
+    "Anomalous/real damage/A/damaged": "B",
+    "Anomalous/real damage/A/scratch": "B",
+    "Anomalous/real damage/B/damaged": "A",
+    "Anomalous/real damage/B/scratch": "A"
+  },
+  "inventory": {
+    "Proper/A": {
+      "source_images": 916,
+      "reference_type": "A"
+    },
+    "Proper/B": {
+      "source_images": 200,
+      "reference_type": "B"
+    },
+    "Anomalous/fake damage with marker pen/A": {
+      "source_images": 585,
+      "reference_type": "A"
+    },
+    "Anomalous/fake damage with marker pen/B": {
+      "source_images": 678,
+      "reference_type": "B"
+    },
+    "Anomalous/real damage/A/damaged": {
+      "source_images": 790,
+      "reference_type": "B"
+    },
+    "Anomalous/real damage/A/scratch": {
+      "source_images": 931,
+      "reference_type": "B"
+    },
+    "Anomalous/real damage/B/damaged": {
+      "source_images": 400,
+      "reference_type": "A"
+    },
+    "Anomalous/real damage/B/scratch": {
+      "source_images": 661,
+      "reference_type": "A"
+    }
+  },
+  "samples": [
+    {
+      "source_path": "Proper/A/_Color_1793275572626.57983398437500.png",
+      "source_sha256": "7357203f2f2a7c2c8faf4cfed5eb10aa05bc1ae356c83ce89036a593d3acfa1b",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/A/_Color_1793275578768.44995117187500.png",
+      "source_sha256": "0d1a0e0773b87d46e254be037a84e976d76e2a25e2f2d0c650cdbc88680cf8fd",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/A/_Color_1793275584869.47094726562500.png",
+      "source_sha256": "8697e0c9110ce1bd830f1d9a62781d372e9adb584ffae09197c9a9a4d5474555",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/A/A2_Color_1793275646351.72045898437500.png",
+      "source_sha256": "f8181bd5560f863affa95460c1449ef47f189c052b3261fa0cb7c78131577b9e",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/A/A2_Color_1793275652487.53442382812500.png",
+      "source_sha256": "a167e7b1b963ddee3578e38b5dc5cd5c06cd9ebafa45fe3d3f4d60b3a38e859b",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/A/A2_Color_1793275658569.21337890625000.png",
+      "source_sha256": "93bfc0ef5b7e445df7935b3ec548cc61f9e166dcf738dbe4517fa36de7651262",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/B/B1_Color_1793275674890.55883789062500.png",
+      "source_sha256": "9ebcf1d5e0dc4b2713ec6be75fcd9feb8a2e85ee372eb936bc7662f5ca8ca276",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/B/B1_Color_1793275676202.45678710937500.png",
+      "source_sha256": "d921c022b7c80e94be41a6e42cfd7a47f84d96f64bc39ed82667aacebd224a8f",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/B/B1_Color_1793275677533.39916992187500.png",
+      "source_sha256": "cf4e2743bed749b1ccc3b7471f21c4c4f26c082eb38c72264119bb550be87456",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/B/B1_Color_1793275678864.30151367187500.png",
+      "source_sha256": "035264715dc14508a10677ff474c5a98a9a0af278fe96d286117b07fdcd78340",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/B/B1_Color_1793275680195.24804687500000.png",
+      "source_sha256": "a3482a7ff4d7b0b0d45a3c8791fdca001158ae006963702e99ced04d784b6a6a",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Proper/B/B1_Color_1793275681526.26123046875000.png",
+      "source_sha256": "897b10bb9f93ad294011f3f05d9ea70ec9767ed2e47c1bb7bebacaff2806df4a",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/A/A_marker_Color_1793276499659.24267578125000.png",
+      "source_sha256": "5699781afc9bf45588bd76b5491f4419c6be81617e4fafb7faf26b971f5b6eed",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/A/A_marker_Color_1793276503524.41870117187500.png",
+      "source_sha256": "b50bfb640db4c5af6f8e26afac997a96ab7e16c9a11a499b8ad98f21c94f7129",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/A/A_marker_Color_1793276507444.49853515625000.png",
+      "source_sha256": "0e8d8e48bc91905ffd4a9b8e811dfd3a9b128960bc4922dea7ef6415e9e369d6",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/A/A_marker_Color_1793276511480.95678710937500.png",
+      "source_sha256": "29c2519059c57899401ef6df0dcdbf958b1fe09e363399d8aebcc066bee02cb2",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/A/A_marker_Color_1793276515374.09765625000000.png",
+      "source_sha256": "4a5562db3a2467695b39a180f6faee78a334253a916744b837d96a6fe7b0415b",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/A/A_marker_Color_1793276519300.39697265625000.png",
+      "source_sha256": "d9b9a46785527b320b6a47969e3936f1bba0d4257bae83202b6e5d0f5eabb8de",
+      "reference_type": "A",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/B/B_marker_Color_1793276579566.08154296875000.png",
+      "source_sha256": "7b32c91bf7c70817bd9b87460fa68b6823710a7cc904bb4de6818e7d6eb030bc",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/B/B_marker_Color_1793276584052.71362304687500.png",
+      "source_sha256": "de7a29d44517218fb92425c40ee857ad9e269da950b906fb8408364d4789e1c1",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/B/B_marker_Color_1793276588547.45996093750000.png",
+      "source_sha256": "0e93e2a7d8c1377f116476de972ae953def30a941de9e0f8923958e957f770e0",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/B/B_marker_Color_1793276593104.79809570312500.png",
+      "source_sha256": "b5d00a70200db01ceea8074f2502885d209d2d315087df9644428755cf7b7b7b",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/B/B_marker_Color_1793276597602.82153320312500.png",
+      "source_sha256": "abcce2d9be48f165f980cc44eb154302e29450e56bfc454801a9a00868558951",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/fake damage with marker pen/B/B_marker_Color_1793276602133.44213867187500.png",
+      "source_sha256": "5c0a8c3c3397fbce7bf77a9a55f25de727abcaa9edcc25e02069c06843b780cf",
+      "reference_type": "B",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285041941.98608398437500.png",
+      "source_sha256": "2aad162817c4f94c7671747b3580fadaf3465a633f315aa3f70c16cf28fb820f",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285047169.82373046875000.png",
+      "source_sha256": "1ffda0766b958cff8d69a2897ca641c48b58dfb8660cd3613020c9d5b80ee0a4",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285052438.78125000000000.png",
+      "source_sha256": "ef7f62de0996fd1807435db0f7d8a75e66cc3be0c3e591e1207d4b7a656d58f1",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285057722.20214843750000.png",
+      "source_sha256": "12425d400570ea660097b8c16c16c154be126413dea46941cde3e9441cde81b1",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285063001.60327148437500.png",
+      "source_sha256": "26472c0aa8bccacfbfa051f2d0c3cf3c4d0a978a6e8df077d46ff1afede5fb07",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285068259.02905273437500.png",
+      "source_sha256": "051f7366ac387a1c908600aac2ab0548607f8621161cbe13d2acae9b8fed6fa2",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285098476.21801757812500.png",
+      "source_sha256": "95ea47b0880dd4b7acf229fb8bee821725029f3f2f2bb0356d052171634603a3",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285104723.35913085937500.png",
+      "source_sha256": "7965db1cdcde4a8eb04230c507cf4abb01f8d6b54ec5c2cc8df01f10242dabcf",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285110920.19921875000000.png",
+      "source_sha256": "a6d52db979a58c360a90bf09f208cecddb7fdc74f7f1fa4b289ed31ff75bc0d4",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285117128.55786132812500.png",
+      "source_sha256": "654bedf46a25cb6e73e18a93d1f8388d738e2b62a276edbad4e0a0d490b20cd6",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285123344.13549804687500.png",
+      "source_sha256": "98775923bc1ba496d934f86bf962634e8c8e3d801e85e744171f2193d7e2bcab",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285129533.59716796875000.png",
+      "source_sha256": "19e8ffe9f70074d417fb9dc5785dea69513bae4ed247d957759835af40928a26",
+      "reference_type": "B",
+      "original_manifest_type": "A",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285158797.51904296875000.png",
+      "source_sha256": "aa66a7ffef684541bf7b929f4d2cc02c577c0ac7d7b98f1c158661d02ce4ae9d",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285161429.50927734375000.png",
+      "source_sha256": "0451c899204e44f6346cff0069da39ea0501c57c156c93763cc0e40bac8894d7",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285164094.80224609375000.png",
+      "source_sha256": "44aed2257f53fdf683021d036c726c4df9b4f1a6227494917c6d7d3f7e35c066",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285166760.05200195312500.png",
+      "source_sha256": "1c41364ebf7160d59f20dee6c2829ae6be4923d605a5d687a3262256e668922c",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285169425.68237304687500.png",
+      "source_sha256": "15992a8b2c85f2ee6839c2ca708cbbc20854e62a9277629027cc38016af0bdc6",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285172106.04248046875000.png",
+      "source_sha256": "a850b2fdbf80f9d04cffed847eafb6c7c3a03ff985104e29af21c9d1af3e67a4",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285217744.71362304687500.png",
+      "source_sha256": "4bebea931064386031342992e27e5f7b6522e15bffed0a18cc0319ad97ef12c2",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285222154.21899414062500.png",
+      "source_sha256": "b4dbf6354eba9595b40ac3a8a187ffbd12b9817271ac5760c17c8da950434a9c",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285226546.23461914062500.png",
+      "source_sha256": "3538720053e7bf4aa5ef6940366aa7cf1159e3abc08e7197e2af76fbd942f364",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285230938.52050781250000.png",
+      "source_sha256": "9ea327efe7d50c9b29da5a96ad451767eee7c1a333ea6bde8722d33f769f715c",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    },
+    {
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285235367.19140625000000.png",
+      "source_sha256": "2c92040e825f935e150baf51e874ec12411eb2c71b4711a4e56a7155e1dcd625",
+      "reference_type": "A",
+      "original_manifest_type": "B",
+      "source_crop_verified": true
+    }
+  ],
+  "selected_changes": [
+    {
+      "parent_id": "70a2ed030b294bb740ce",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285042174.64184570312500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "29f9fafea0083b59fb71",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285045231.99072265625000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "da7e65a09a7e1ded4ea0",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285046298.67260742187500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "1f008f8ae83f011db015",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285048207.26977539062500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "31413ac48544972a74d3",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285051705.78002929687500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "3180366e7a175752fb1c",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285052372.14819335937500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "a21fea069fe7dbee0984",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285054304.35668945312500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "57e9cc694443dd867938",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285054837.30688476562500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "73e22655c96cdb4f8e14",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285055743.51562500000000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "7f84be3a1b11bed9b3c2",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285057418.12451171875000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "8ed12988f2aaf305c45a",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285058691.27246093750000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "479306785bc35801aa99",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285059457.46484375000000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "d9c69fb6e96e5191cdbf",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285060923.27490234375000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "35d10d7d0d1b48d5f447",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285064066.32763671875000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "2e73d1e4770771f250f2",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285065763.27392578125000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "81b725834e7f517ef7d9",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285066927.93334960937500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "e7196395e40148853266",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285067327.30615234375000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "051f7366ac387a1c9086",
+      "source_path": "Anomalous/real damage/A/damaged/A_damaged_Color_1793285068259.02905273437500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "4b18c2071a8b5f207d09",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285098509.57495117187500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "68bb5a715d0fee35cdc6",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285103424.03710937500000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "6822bd8775acce543657",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285104856.61547851562500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "fb12e7d43b00316fe5a6",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285105889.42700195312500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "81291bc9b1edadda306a",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285106589.01831054687500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "1a0cbc1db53d317e93a3",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285107055.34497070312500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "06ad6a8e3d7dc51ff7e1",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285108821.14624023437500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "04118324b94d60cba1e3",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285110153.80371093750000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "4ca750ea67bf56b2df19",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285111320.01220703125000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "0c1ae5db84daa23a97e7",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285112052.89428710937500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "f478802cf21971fcb05b",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285114351.71459960937500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "02b81aaf2fa2ed1af0a7",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285114918.03369140625000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "b4efa2c57bb65bfbee67",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285115950.86694335937500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "ce624227c80c077f4730",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285117430.59741210937500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "5e10186ad5d1a3c56e3c",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285118968.10302734375000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "c2512bdb8f5c3da470b8",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285121267.65087890625000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "058eeda139d746672a35",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285123743.45825195312500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "c5cbd60be31ff1bd2cfa",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285124275.75634765625000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "e9f9c0086d5d177f2c32",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285124907.91723632812500.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "c22786c2f7a9756a8ca5",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285128535.34082031250000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "65a6bf6d7a859f46d167",
+      "source_path": "Anomalous/real damage/A/scratch/A_scratch_Color_1793285129367.20410156250000.png",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "parent_id": "aa66a7ffef684541bf7b",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285158797.51904296875000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "987a00d03ef93fecb585",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285161062.99975585937500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "f91d9ca18f4e4e445131",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285161729.36108398437500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "5274f281ce91f176ebc6",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285162562.20800781250000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "79d7bf7082a36083ac29",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285163861.57788085937500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "9bddc16ec829e9bf8ea8",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285165760.67993164062500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "acb1c183285d981770dc",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285166060.47753906250000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "42de1f3ae40dbc59bd39",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285167359.66748046875000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "d0bf89776ab655fb3917",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285168658.97827148437500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "9ca96c74b72b919e3cbf",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285168792.25634765625000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "ff662567fc550882de67",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285169830.27319335937500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "35410a42b66f9446a21e",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285171502.69580078125000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "a850b2fdbf80f9d04cff",
+      "source_path": "Anomalous/real damage/B/damaged/B_damaged_Color_1793285172106.04248046875000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "4bebea93106438603134",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285217744.71362304687500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "57394187dea9333fd78d",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285219843.47656250000000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "d42721487772c667def6",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285221987.85107421875000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "8a0d61ccec7fe5c60b84",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285222320.57006835937500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "9a7a89cd3e97b393a100",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285223784.57666015625000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "11fc42bc68bf75b827b1",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285225015.73095703125000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "2a41da0030f99b060bb5",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285227344.80810546875000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "75a2eeaccd169ea01745",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285228609.20825195312500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "cd1646938f44db5c86ad",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285228775.60839843750000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "2d4e16182bef4efe45d6",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285230372.85327148437500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "68ed6d092a7531d4ad3b",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285231939.53808593750000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "d258227a7b1cf6aee3a0",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285233324.02246093750000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "49fae3a0709284a9c818",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285235804.81982421875000.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "5e322b697710d5349aa7",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285237636.53735351562500.png",
+      "before": "B",
+      "after": "A"
+    },
+    {
+      "parent_id": "f9117cd89a8bd65984e8",
+      "source_path": "Anomalous/real damage/B/scratch/B_scratch_Color_1793285239731.48413085937500.png",
+      "before": "B",
+      "after": "A"
+    }
+  ],
+  "selected_counts": {
+    "A_0": 19,
+    "B_0": 7,
+    "A_1": 40,
+    "B_1": 52
+  },
+  "image_files_changed": false,
+  "anomaly_labels_changed": false,
+  "normal_bank_changed": false,
+  "authority": "User stated A/B labels are wrong and instructed inspection of folder contents to resolve mapping; anchored to Proper normal reference shapes.",
+  "scope": "All real-damage and scratch folders have reversed source-folder names relative to normal/marker types. In situ excluded from fitting and calibration.",
+  "historical_manifest_sha256": "189c36eca189154c4d0d70cb0d64f73ab29e4f310a997338457fafcd26e20db5",
+  "corrected_selected_manifest_sha256": "d120e2239ea22874ced22ec685845b83ce301381e5e6a11a216dc2aa7522e41b"
+}

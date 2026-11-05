@@ -1,0 +1,55 @@
+{
+  "version": "user_selected_detection_v2",
+  "upstream_commit": "c68cea00fac282ec526d59bca55f27b3203daf37",
+  "classes": [
+    "gear type A",
+    "gear type B"
+  ],
+  "label_mapping": {
+    "0": "A",
+    "1": "B"
+  },
+  "architecture": "GroundingDINO_ParallelDecoder_15_DNQuery_rand / Swin-B",
+  "selected_epochs": 30,
+  "selected_checkpoint_sha256": "def5af30d464c557e558951f3d3df6cd4ac140ab0f6905d0e325a640b2b31413",
+  "checkpoint": "../../weights/ftfsod.pth",
+  "checkpoint_sha256": "5ad1a77526bd671278a2bdc600305e75eac64a826b7bb519248056529931ec4a",
+  "config": "inference.py",
+  "config_sha256": "aa16add88c95f496b3e95ca77d89b41ae78e8b5e3db5d51ca5d2a3637990855d",
+  "worker_sha256": "1d9bc45fea69a80f0964ccfd7152c25993b4e9bc7446cc3827235b859f07255f",
+  "training_config_sha256": "507548418d7aa1df0f57e89504e43c0b472bde29ffbf86b102b3bd6e946cf6b3",
+  "selection_sha256": "450396c188a67745f186ad7836be22457f86a1e0747cf12b6dcc0af8c4b41cfa",
+  "coco_all_sha256": "442608c480e1f24fb9651a01fbfc4dcb0325ef8362ea5b9b6ca0f3db6d9259ab",
+  "originals": {
+    "A": 11,
+    "B": 10
+  },
+  "rotation_views": 84,
+  "rotation_degrees": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "anomalous_training_usage": {
+    "images": [
+      "Anomalous/real damage/A/scratch/A_scratch_Color_1793285098542.93212890625000.png",
+      "Anomalous/real damage/A/scratch/A_scratch_Color_1793285105556.26855468750000.png",
+      "Anomalous/real damage/A/scratch/A_scratch_Color_1793285115284.49877929687500.png"
+    ],
+    "gear_type": "B",
+    "anomaly_label": 1,
+    "role": "type_detector_training_only",
+    "reference_bank_eligible": false,
+    "anomaly_calibration_eligible": false,
+    "label_reason": "Visually checked: narrow cylindrical shape matching Proper/B. Real damage/A folder names are reversed relative to normal type definitions; see identity_v4/taxonomy.json."
+  },
+  "refit": "Original public initialization; all selected originals; all_network recipe. No In situ gradient fitting.",
+  "refit_recipe": "all_network",
+  "learning_rate_schedule_sha256": "e237fb4a3bf01fb70b54286b1717ba43712e2945b8b228e5aadba2c06d40e28f",
+  "runtime_score_threshold": 0.3,
+  "runtime_nms_iou": 0.4,
+  "pretrained_sha256": "f9818a7c6a4591d8ecda0d54491b143c5f1aedc64c21eb63822a32eb4f408aa1",
+  "selection_limit": "16 training parents, 5 validation parents; correlated captures. Validation scores apply to selection model, not independent performance of all-image refit.",
+  "test_data_used_for_fitting": false
+}

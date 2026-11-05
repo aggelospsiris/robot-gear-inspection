@@ -98,6 +98,7 @@ class BertModel(BaseModel):
 
     def __init__(self,
                  name: str = 'bert-base-uncased',
+                 weights_path: str = None,
                  max_tokens: int = 256,
                  pad_to_max: bool = True,
                  use_sub_sentence_represent: bool = False,
@@ -121,6 +122,7 @@ class BertModel(BaseModel):
             OrderedDict([('body',
                           BertEncoder(
                               name,
+                              weights_path=weights_path,
                               add_pooling_layer=add_pooling_layer,
                               num_layers_of_embedded=num_layers_of_embedded,
                               use_checkpoint=use_checkpoint))]))
@@ -185,6 +187,7 @@ class BertEncoder(nn.Module):
 
     def __init__(self,
                  name: str,
+                 weights_path: str = None,
                  add_pooling_layer: bool = False,
                  num_layers_of_embedded: int = 1,
                  use_checkpoint: bool = False):
@@ -196,8 +199,27 @@ class BertEncoder(nn.Module):
         config = BertConfig.from_pretrained(name)
         config.gradient_checkpointing = use_checkpoint
         # only encoder
-        self.model = HFBertModel.from_pretrained(
-            name, add_pooling_layer=add_pooling_layer, config=config)
+        if weights_path is None:
+            self.model = HFBertModel.from_pretrained(
+                name, add_pooling_layer=add_pooling_layer, config=config)
+        else:
+            # Keep model tensors in weights/ and tokenizer/config in assets/.
+            from safetensors.torch import load_file
+            self.model = HFBertModel(config, add_pooling_layer=add_pooling_layer)
+            raw_state = load_file(weights_path)
+            # Match Transformers' BertModel checkpoint conversion: the public
+            # BERT file includes a bert. prefix, legacy LayerNorm gamma/beta,
+            # and pretraining task heads that BertModel does not use.
+            state = {}
+            for key, value in raw_state.items():
+                if key.startswith("cls."):
+                    continue
+                key = key.removeprefix("bert.")
+                key = key.replace(".gamma", ".weight").replace(".beta", ".bias")
+                if key.startswith("pooler.") and not add_pooling_layer:
+                    continue
+                state[key] = value
+            self.model.load_state_dict(state, strict=True)
         self.language_dim = config.hidden_size
         self.num_layers_of_embedded = num_layers_of_embedded
 

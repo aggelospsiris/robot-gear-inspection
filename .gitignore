@@ -1,9 +1,7 @@
 .venv*/
 __pycache__/
 *.pyc
+.pytest_cache/
 output/
-weights/
-
-!weights/
 weights/*
 !weights/.gitkeep
