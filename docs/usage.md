@@ -242,32 +242,3 @@ the `.venv-ftfsod/bin/python` executable path: resolving its symlink loses its
 virtual environment. Weights/calibration fingerprints are checked at load time;
 do not edit thresholds, bank or scoring independently.
 
-## Evaluation and limitations
-
-This is a research inference prototype. On the 709-frame known-normal development
-sequence it produced 15.0% false alarms among decided repeated gear observations
-and one incorrect type lock. Damaged-video recall and production tracking are
-not validated. Initial/blurred views may have no decision. Test with representative
-normal and damaged sequences from your camera before integrating decisions into
-automated inspection or control.
-
-`assets/calibration/manifest.csv` and `assets/calibration/taxonomy.json` are small integrity records
-required by calibration checks; they are not image datasets and their historical
-paths are not read at inference. `ASSETS_SHA256.json` records included asset hashes.
-No training images, videos, experiment reports or alternative model weights are
-included. Source code is published at https://github.com/aggelospsiris/robot-gear-inspection.
-Only model checkpoints are distributed separately; reference assets and calibration
-are included in Git.
-See `THIRD_PARTY_NOTICES.md` and vendor licenses for redistribution terms.
-
-
-## Scope and licensing
-
-This repository provides inference for the supplied A/B gear configuration.
-Training scripts and tools for building new reference banks or calibrating other
-products are not included. Applying the pipeline to new gear types or camera
-conditions requires suitable detector weights, references and calibration.
-
-See [LICENSE](../LICENSE) for this project's license and
-[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) for upstream components.
-Model weights and dependencies retain their own license terms.
