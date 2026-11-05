@@ -1,0 +1,10 @@
+{
+  "status": "COPIED_MODELS_LIVE_SMOKE_PASSED",
+  "frames": 25,
+  "ids_types_and_anomaly_scores_match_selected_pipeline": true,
+  "model_weights_portable": true,
+  "config_paths_relative": true,
+  "environment": "Existing installed interpreters used for smoke; clean installation on partner hardware not executed",
+  "datasets_included": false,
+  "experiment_outputs_included": false
+}

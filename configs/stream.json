@@ -1,0 +1,50 @@
+{
+  "assets": "../weights/anomaly",
+  "device": "cuda:0",
+  "retrieval_k": 16,
+  "max_gears": 12,
+  "temporal": {
+    "type_confidence": 0.3,
+    "min_frames": 5,
+    "min_span": 0.6,
+    "sample_interval": 0.15,
+    "lost_seconds": 3.0,
+    "max_gap_seconds": 2.0
+  },
+  "detector": "ftfsod",
+  "detector_threshold": 0.3,
+  "discovery_interval_frames": 1,
+  "ftfsod": {
+    "python": "../.venv-ftfsod/bin/python",
+    "worker": "../tools/ftfsod_worker.py",
+    "config": "../weights/detector/inference.py",
+    "checkpoint": "../weights/detector/gears_hed.pth",
+    "manifest": "../weights/detector/manifest.json",
+    "log": "../output/detector.log",
+    "nms_iou": 0.4,
+    "new_track_threshold": 0.3,
+    "max_interval_seconds": 0.5
+  },
+  "segmenter": "sam3_boxes",
+  "identity": {
+    "min_observations": 15,
+    "min_span": 0.3,
+    "sample_interval": 0.0,
+    "switch_observations": 5,
+    "switch_span": 0.6,
+    "max_area_ratio": 2.5,
+    "min_box_iou": 0.1,
+    "lock_after_confirmation": true,
+    "aggregation": "confidence_weighted_cumulative",
+    "minimum_agreement": 0.5,
+    "preserve_pending_type_evidence": true
+  },
+  "reidentification": {
+    "max_missing_seconds": 3.0,
+    "minimum_appearance": 0.65,
+    "maximum_center_distance": 1.5,
+    "ambiguity_margin": 0.08
+  },
+  "sam3_checkpoint": "../weights/sam3.pt",
+  "sam3_image_size": 1008
+}
