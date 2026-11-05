@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 output/
 weights/
+
+!weights/
+weights/*
+!weights/.gitkeep

@@ -34,14 +34,20 @@ git clone https://github.com/aggelospsiris/robot-gear-inspection.git
 cd robot-gear-inspection
 ```
 
-The model assets are **not included in Git**, and no public weight download is
-currently provided. Request the matching asset bundle from the repository
-maintainer through [GitHub Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues).
-A source-only clone cannot run inference. If you already have the complete
-archive, extract it and use its `robot_gear_inspection` directory directly.
+The model assets are **not included in Git**. Obtain
+`robot_gear_inspection_weights.zip` from the repository maintainer. There is
+currently no public download URL; request the archive through
+[GitHub Issues](https://github.com/aggelospsiris/robot-gear-inspection/issues).
 
-For a source clone, place the bundle's complete `weights/` directory in the
-repository root. Preserve its directory structure:
+The repository includes an empty `weights/` folder. Extract the ZIP **into that
+folder**, from the repository root:
+
+```bash
+unzip /path/to/robot_gear_inspection_weights.zip -d weights
+```
+
+The ZIP contains the contents of `weights/`, so do not create a second nested
+`weights/weights/` directory. After extraction, check that these paths exist:
 
 ```text
 weights/
@@ -62,6 +68,9 @@ weights/
   manifest.csv
   taxonomy.json
 ```
+
+A source-only clone cannot run inference. No training or reference images are
+needed in this folder.
 
 The assets must match `WEIGHTS_SHA256.json`, including the calibrated reference
 bank and thresholds. Downloading generic upstream checkpoints alone does not
