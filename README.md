@@ -214,5 +214,6 @@ robot-camera normal and damaged sequences before using decisions for robot actio
 required by calibration checks; they are not image datasets and their historical
 paths are not read at inference. `WEIGHTS_SHA256.json` records included asset hashes.
 No training images, videos, experiment reports or alternative model weights are
-included. This repository is local; nothing has been published or sent externally.
+included. Source code is published at https://github.com/aggelospsiris/robot-gear-inspection.
+The weights are distributed separately in the handover archive.
 See `THIRD_PARTY_NOTICES.md` and vendor licenses for redistribution terms.
