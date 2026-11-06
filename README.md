@@ -16,7 +16,7 @@ cd robot-gear-inspection
 
 ## Checkpoints
 
-Download the checkpoints from the [weights folder on SharePoint](https://itmlgr.sharepoint.com/:f:/r/sites/tornado.eu/Shared%20Documents/06.%20TORNADO%20-%20Work%20Packages/TORNADO%20-%20WP4/UC1_anomaly_detection_weights?d=we4be14988f324919a5b9802534849f2e&csf=1&web=1&e=VJnnKT)
+Download the checkpoints from the [weights folder on SharePoint](https://itmlgr.sharepoint.com/sites/tornado.eu/SitePages/Home.aspx?CID=fbd55e1b-f213-4ed9-b5ed-2f221d7d509d)
 and place the five files directly in `weights/`. Access is subject to the folder's
 SharePoint permissions.
 
